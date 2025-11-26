@@ -6,7 +6,7 @@ using System.Web;
 
 namespace TravelTripBlog.Models.Entities
 {
-	public class Adres
+	public class AdresBlog
 	{
 		[Key]
 		public int AdresId { get; set; }
