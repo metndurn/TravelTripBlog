@@ -7,13 +7,13 @@ using TravelTripBlog.Models.Entities;
 
 namespace TravelTripBlog.Controllers
 {
-    public class AboutController : Controller
+    public class ContactController : Controller
     {
-        // GET: Hakkımızda
-        Context about = new Context();
+		// GET: Contact
+		Context contact = new Context();
 		public ActionResult Index()
         {
-            var value = about.Hakkimizdas.ToList();
+            var value = contact.Iletisims.ToList();
 			return View(value);
         }
     }
