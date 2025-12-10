@@ -1,4 +1,5 @@
-﻿
+﻿@using TravelTripBlog.Models.Entities
+@model List<Bloglar>
 @{
     ViewBag.Title = "BlogDetay";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,12 +23,16 @@
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                <div class="single-grid">
-                    <img src="~/web2/images/post1.jpg" alt="" />
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                </div>
+                @foreach (var bloglar in Model)
+                {
+                    <div class="single-grid">
+                        <img src="@bloglar.BlogImage" alt="" style="margin-bottom:20px" />
+                        <h3>@bloglar.Baslik</h3>
+                        <p>
+                            @bloglar.Aciklama
+                        </p>
+                    </div>
+                }
                 <ul class="comment-list">
                     <li>
                         <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
@@ -47,13 +52,12 @@
                     </li>
                 </ul>
                 <div class="content-form">
-                    <h3>Leave a comment</h3>
+                    <h3>Bir Yorum Yapın</h3>
                     <form>
-                        <input type="text" placeholder="Name" required />
-                        <input type="text" placeholder="Email" required />
-                        <input type="text" placeholder="Phone" required />
-                        <textarea placeholder="Message"></textarea>
-                        <input type="submit" value="SEND" />
+                        <input type="text" placeholder="Kullanıcı Adı" required />
+                        <input type="text" placeholder="Mail Adresi" required />
+                        <textarea placeholder="Yorum"></textarea>
+                        <input type="submit" value="Gönder" />
                     </form>
                 </div>
             </div>
