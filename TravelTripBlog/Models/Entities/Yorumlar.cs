@@ -13,6 +13,7 @@ namespace TravelTripBlog.Models.Entities
 		public string KullaniciAdi { get; set; }
 		public string Mail { get; set; }
 		public string Yorum { get; set; }
-		public Bloglar Bloglar { get; set; }//bir yorum bir bloga aittir
+		public int BlogsId { get; set; }/*blogıd'yi ekledik cünkü yeni yorum yapıldıgı vakıt bos blog olusturup sadece yorum yapmanısını engelledık*/
+		public virtual Bloglar Bloglar { get; set; }//bir yorum bir bloga aittir virtual ekledık çünkü sadece o an ihtıyac duyuldugunda blogları getırırız
 	}
 }
