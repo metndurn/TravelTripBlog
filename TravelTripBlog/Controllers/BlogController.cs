@@ -16,5 +16,11 @@ namespace TravelTripBlog.Controllers
             var value = blog.Bloglars.ToList();
 			return View(value);
         }
-    }
+		public ActionResult BlogDetay(int id)
+		{
+			var value = blog.Bloglars.Where(x => x.BlogId == id).ToList();
+			return View(value);
+		}
+
+	}
 }
