@@ -16,10 +16,12 @@ namespace TravelTripBlog.Controllers
             var value = blog.Bloglars.ToList();
 			return View(value);
         }
+		BlogYorumlari blogyorum = new BlogYorumlari();
 		public ActionResult BlogDetay(int id)
 		{
-			var value = blog.Bloglars.Where(x => x.BlogId == id).ToList();
-			return View(value);
+			//var value = blog.Bloglars.Where(x => x.BlogId == id).ToList();
+			blogyorum.Bloglar1 = blog.Bloglars.Where(x => x.BlogId == id).ToList();
+			return View(blogyorum);
 		}
 
 	}

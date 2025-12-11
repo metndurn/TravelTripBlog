@@ -1,5 +1,4 @@
-﻿@using TravelTripBlog.Models.Entities
-@model List<Bloglar>
+﻿@model TravelTripBlog.Models.Entities.BlogYorumlari
 @{
     ViewBag.Title = "BlogDetay";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,7 +22,7 @@
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                @foreach (var bloglar in Model)
+                @foreach (var bloglar in Model.Bloglar1)
                 {
                     <div class="single-grid">
                         <img src="@bloglar.BlogImage" alt="" style="margin-bottom:20px" />
