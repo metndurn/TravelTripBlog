@@ -20,7 +20,8 @@ namespace TravelTripBlog.Controllers
 		public ActionResult BlogDetay(int id)
 		{
 			//var value = blog.Bloglars.Where(x => x.BlogId == id).ToList();
-			blogyorum.Bloglar1 = blog.Bloglars.Where(x => x.BlogId == id).ToList();
+			blogyorum.Bloglar1 = blog.Bloglars.Where(x => x.BlogId == id).ToList();//hangi bloga tıklandıysa o blogun ıd'sine göre blogları listeledik
+			blogyorum.Yorumlar1 = blog.Yorumlars.Where(x => x.BlogsId == id).ToList();//hangi bloga yorum yapılacaksa o blogun ıd'sine göre yorumları listeledik
 			return View(blogyorum);
 		}
 

@@ -32,24 +32,18 @@
                         </p>
                     </div>
                 }
-                <ul class="comment-list">
-                    <li>
-                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-                        <div class="desc">
-                            <p>Mehmet Yücedağ Yorum Yazacak...</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                </ul>
-                <ul class="comment-list">
-                    <li>
-                        <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
-                        <div class="desc">
-                            <p>Murat Yücedağ Yorum Yazacak...</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </li>
-                </ul>
+                @foreach (var yorumlar in Model.Yorumlar1)
+                {
+                    <ul class="comment-list">
+                        <li>
+                            <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+                            <div class="desc">
+                                <p>@yorumlar.KullaniciAdi: @yorumlar.Yorum</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                 }
                 <div class="content-form">
                     <h3>Bir Yorum Yapın</h3>
                     <form>
