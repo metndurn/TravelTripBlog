@@ -1,4 +1,5 @@
-﻿
+﻿@using TravelTripBlog.Models.Entities
+@model List<Bloglar>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,16 +16,17 @@
     <script src="~/web/js/jquery.min.js"></script>
     <script src="~/web/js/responsiveslides.min.js"></script>
 
-    <script>// You can also use "$(window).load(function() {"
-    $(function () {
-      // Slideshow 1
-      $("#slider1").responsiveSlides({
-         auto: true,
-		 nav: true,
-		 speed: 500,
-		 namespace: "callbacks",
-      });
-    });</script>
+    <script>
+    // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 1
+            $("#slider1").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+            });
+        });</script>
 </head>
 <body>
     <div class="header-banner">
@@ -75,10 +77,10 @@
 
                         <div class="slider">
                             <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
-                                <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+                                @foreach (var bloglar in Model)
+                                {
+                                    <li><img src="@bloglar.BlogImage" alt="" style="width:699px; height:350px;"></li>
+                                }
                             </ul>
                         </div>
                     </div>
