@@ -1,5 +1,4 @@
-﻿@using TravelTripBlog.Models.Entities
-@model List<Bloglar>
+﻿@model TravelTripBlog.Models.Entities.BlogYorumlari
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,7 +22,7 @@
     <div class="single">
         <div class="container">
             <div class="col-md-8 single-main">
-                @foreach (var bloglar in Model)
+                @foreach (var bloglar in Model.Bloglar1)
                 {
                     <div class="single-grid">
                         <img src="@bloglar.BlogImage" alt="" style="margin-bottom:20px" />
@@ -38,20 +37,25 @@
             <div class="col-md-4 side-content">
                 <div class="recent">
                     <h3>Son Bloglar</h3>
-                    <ul>
-                        <li><a href="#">Aliquam tincidunt mauris</a></li>
-                        <li><a href="#">Vestibulum auctor dapibus  lipsum</a></li>
-                        <li><a href="#">Nunc dignissim risus consecu</a></li>
-                        <li><a href="#">Cras ornare tristiqu</a></li>
-                    </ul>
+                    @foreach (var bloglar in Model.Bloglar2)//son blogları listeliyoruz
+                    {
+                        <ul>
+                            <li><a href="/Blog/BlogDetay/@bloglar.BlogId">@bloglar.Baslik</a></li>
+                            @*<li><a href="#">@bloglar.Tarih</a></li>
+                            <li><a href="#">@bloglar.Aciklama</a></li>
+                            <li><a href="#">@bloglar.BlogImage</a></li>*@
+                        </ul>
+                    }
                 </div>
                 <div class="comments">
                     <h3>Son Yorumlar</h3>
-                    <ul>
-                        <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
-                        <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
-                        <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
-                    </ul>
+                    @foreach (var yorumlar in Model.Yorumlar2)
+                    {
+                        <ul>
+                           <li><a href="/Blog/BlogDetay/@yorumlar.Yorum">@yorumlar.Yorum</a></li>
+                            
+                        </ul>
+                    }
                 </div>
             </div>
             <div class="clearfix"></div>

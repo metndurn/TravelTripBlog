@@ -11,12 +11,17 @@ namespace TravelTripBlog.Controllers
     {
 		// GET: Blog
 		Context blog = new Context();
+		BlogYorumlari blogyorum = new BlogYorumlari();
 		public ActionResult Index()
         {
-            var value = blog.Bloglars.ToList();
-			return View(value);
+			//var value = blog.Bloglars.ToList();
+			blogyorum.Bloglar1 = blog.Bloglars.ToList();
+			//blogyorum.Bloglar2 = blog.Bloglars.Take(3).ToList();//anasayfada 3 blog gosterme seklıdır
+			blogyorum.Bloglar2 = blog.Bloglars.OrderByDescending(x => x.BlogId).Take(3).ToList();//son eklenen blogları gosterme seklıdır ters sıralama yapar
+			blogyorum.Yorumlar2 = blog.Yorumlars.Take(3).ToList();
+			return View(blogyorum);
         }
-		BlogYorumlari blogyorum = new BlogYorumlari();
+		
 		public ActionResult BlogDetay(int id)
 		{
 			//var value = blog.Bloglars.Where(x => x.BlogId == id).ToList();
